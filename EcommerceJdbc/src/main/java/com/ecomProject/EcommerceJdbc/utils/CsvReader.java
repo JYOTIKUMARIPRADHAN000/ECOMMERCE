@@ -3,6 +3,7 @@ package com.ecomProject.EcommerceJdbc.utils;
 
 
 import java.io.BufferedReader;
+import com.ecomProject.EcommerceJdbc.models.Product;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,11 +29,11 @@ public class CsvReader {
 
 					Product product = new Product();
 
-					product.setProductId(Integer.parseInt(data[0].trim()));
-					product.setProductName(data[1].trim());
-					product.setCategory(data[2].trim());
-					product.setPrice(Double.parseDouble(data[3].trim()));
-					product.setStock(Integer.parseInt(data[4].trim()));
+					product.setProductName(data[0].trim());
+					product.setDescription(data[1].trim());
+					product.setPrice(Double.parseDouble(data[2].trim()));
+					product.setStock(Integer.parseInt(data[3].trim()));
+					product.setCategory(data[4].trim());
 
 					productList.add(product);
 				}

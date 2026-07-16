@@ -6,25 +6,25 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import com.ecommerce.Product;
-import com.ecommerce.DBConnection;
+
 
 public class ProductDAO {
 
 	// Add Product
 	public boolean addProduct(Product product) {
 
-		String sql = "INSERT INTO product(product_name, product_name, category, price, stock) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO product(product_name, description, price, stock, category) VALUES(?,?,?,?,?)";
 
 		try (Connection connection = DBConnection.getConnection();
 				PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
 			
 			pstmt.setString(1, product.getProductName());
-			pstmt.setInt(2, product.getDescription());
+			pstmt.setString(2, product.getDescription());
 			pstmt.setDouble(3, product.getPrice());
 			pstmt.setInt(4, product.getStock());
 			pstmt.setString(5, product.getCategory());
+			
 			
 
 			int rows = pstmt.executeUpdate();
@@ -42,16 +42,17 @@ public class ProductDAO {
 	// Update Product
 	public boolean updateProduct(Product product) {
 
-		String sql = "UPDATE product SET product_name = ?, category = ?, price = ?, stock = ? WHERE product_id = ?";
+		String sql = "UPDATE product SET product_name = ?,description=?,  price = ?, stock = ?,category = ? WHERE product_id = ?";
 
 		try (Connection connection = DBConnection.getConnection();
 				PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
 			pstmt.setString(1, product.getProductName());
-			pstmt.setString(2, product.getCategory());
+			pstmt.setString(2, product.getDescription());
 			pstmt.setDouble(3, product.getPrice());
 			pstmt.setInt(4, product.getStock());
-			pstmt.setInt(5, product.getProductId());
+			pstmt.setString(5, product.getCategory());
+			pstmt.setInt(6, product.getProductId());
 
 			int rows = pstmt.executeUpdate();
 
@@ -137,13 +138,14 @@ public class ProductDAO {
 
 			while (rs.next()) {
 
-				Product product = new Product();
+				Product product=new Product();
 
 				product.setProductId(rs.getInt("product_id"));
 				product.setProductName(rs.getString("product_name"));
-				product.setCategory(rs.getString("category"));
+				product.setDescription(rs.getString("description"));
 				product.setPrice(rs.getDouble("price"));
 				product.setStock(rs.getInt("stock"));
+				product.setCategory(rs.getString("category"));
 
 				productList.add(product);
 			}
