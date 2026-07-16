@@ -14,16 +14,18 @@ public class ProductDAO {
 	// Add Product
 	public boolean addProduct(Product product) {
 
-		String sql = "INSERT INTO product(product_id, product_name, category, price, stock) VALUES (?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO product(product_name, product_name, category, price, stock) VALUES (?, ?, ?, ?, ?)";
 
 		try (Connection connection = DBConnection.getConnection();
 				PreparedStatement pstmt = connection.prepareStatement(sql)) {
 
-			pstmt.setInt(1, product.getProductId());
-			pstmt.setString(2, product.getProductName());
-			pstmt.setString(3, product.getCategory());
-			pstmt.setDouble(4, product.getPrice());
-			pstmt.setInt(5, product.getStock());
+			
+			pstmt.setString(1, product.getProductName());
+			pstmt.setInt(2, product.getDescription());
+			pstmt.setDouble(3, product.getPrice());
+			pstmt.setInt(4, product.getStock());
+			pstmt.setString(5, product.getCategory());
+			
 
 			int rows = pstmt.executeUpdate();
 
@@ -105,9 +107,12 @@ public class ProductDAO {
 
 					product.setProductId(rs.getInt("product_id"));
 					product.setProductName(rs.getString("product_name"));
-					product.setCategory(rs.getString("category"));
+					product.setDescription(rs.getString("description"));
 					product.setPrice(rs.getDouble("price"));
 					product.setStock(rs.getInt("stock"));
+					product.setCategory(rs.getString("category"));
+					
+					
 				}
 			}
 
