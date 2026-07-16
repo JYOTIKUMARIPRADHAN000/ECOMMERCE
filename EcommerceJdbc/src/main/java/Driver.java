@@ -26,31 +26,30 @@ public class Driver {
 			e.printStackTrace();
 		}
 
-		CustomerDAO dao = new CustomerDAO();
+		// CustomerDAO dao = new CustomerDAO();
 
 		// need to update on each test to avoid duplicate
-		Customer customer = new Customer("Test8861", "User", "testuser92685@gmail.com", "9876543299", "test123", "Pune",
-				"USER");
+//		Customer customer = new Customer("Test8861", "User", "testuser92685@gmail.com", "9876543299", "test123", "Pune",
+//				"USER");
+//
+//		boolean result = dao.addCustomer(customer);
+//
+//		System.out.println(result);
+//
+//		for (Customer customerNmae : dao.getAllCustomers()) {
+//			System.out.println(customerNmae);
+//		}
 
-		boolean result = dao.addCustomer(customer);
-
-		System.out.println(result);
-
-		for (Customer customerNmae : dao.getAllCustomers()) {
-			System.out.println(customerNmae);
-		}
-
-		CustomerService service = new CustomerService();
+		// CustomerService service = new CustomerService();
 
 		// need to update on each test to avoid duplicate
-		Customer customer1 = new Customer("Rahulll", "Patil", "rahullpatilgggg@gmail.com", "9876543218", "rahul123",
-				"Pune", "USER");
+//		Customer customer1 = new Customer("Rahulll", "Patil", "rahullpatilgggg@gmail.com", "9876543218", "rahul123",
+//				"Pune", "USER");
 
-		System.out.println(service.registerCustomer(customer1));
+		// System.out.println(service.registerCustomer(customer1));
 
 		MainMenu menu = new MainMenu();
 		menu.showMainMenu();
 
 	}
 }
-
