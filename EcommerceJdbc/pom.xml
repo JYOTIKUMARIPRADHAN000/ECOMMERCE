@@ -24,11 +24,22 @@
 			<version>9.3.0</version>
 		</dependency>
 
+		<!-- Source:
+		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
-			  <groupId>org.junit.jupiter</groupId>
-    <artifactId>junit-jupiter</artifactId>
-    <version>5.10.2</version>
-    <scope>test</scope>
+<<<<<<< HEAD
+			  
+=======
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter-api</artifactId>
+			<version>5.14.4</version>
+			<scope>test</scope>
+>>>>>>> 42a08e5c6ab133e22629a936039dee8ccad7b287
+		</dependency>
+		<dependency>
+			<groupId>com.ecommerce</groupId>
+			<artifactId>Order</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 	
