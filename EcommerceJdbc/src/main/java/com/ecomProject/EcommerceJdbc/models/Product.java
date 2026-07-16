@@ -21,6 +21,7 @@ public class Product {
 		this.category = category;
 		this.price = price;
 		this.stock = stock;
+		this.description=description;
 	}
 	
 	public String getDescription() {
@@ -84,7 +85,11 @@ public class Product {
 	// Display Product Details
 	@Override
 	public String toString() {
-		return "Product ID : " + productId + "\nProduct Name : " + productName + "\nCategory : " + category
-				+ "\nPrice : ₹" + price + "\nStock : " + stock + "\n";
+	    return "Product ID : " + productId
+	            + "\nProduct Name : " + productName
+	            + "\nCategory : " + category
+	            + "\nPrice : ₹" + price
+	            + "\nStock : " + stock
+	            + "\nDescription : " + description;
 	}
 }

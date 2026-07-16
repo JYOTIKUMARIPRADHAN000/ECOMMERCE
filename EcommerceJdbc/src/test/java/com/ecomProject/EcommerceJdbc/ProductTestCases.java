@@ -15,11 +15,13 @@ public class ProductTestCases {
     public void testAddProduct() {
 
         Product product = new Product(
-                101,
+                0,
                 "Laptop",
                 "Electronics",
-                55000,
-                5);
+                50000,
+                5,
+                "Good laptop"
+        );
 
         assertTrue(service.addProduct(product));
     }
@@ -27,18 +29,21 @@ public class ProductTestCases {
     @Test
     public void testSearchProduct() {
 
-        assertNotNull(service.searchProduct(101));
+        Product product = service.searchProduct(1); // Change to an ID that exists in your DB
+        assertNotNull(product);
     }
 
     @Test
     public void testUpdateProduct() {
 
         Product product = new Product(
-                101,
-                "Gaming Laptop",
+                1,                      // Existing product ID
+                "Laptop Updated",
                 "Electronics",
-                65000,
-                8);
+                55000,
+                10,
+                "Updated gaming laptop"
+        );
 
         assertTrue(service.editProduct(product));
     }
@@ -52,6 +57,6 @@ public class ProductTestCases {
     @Test
     public void testDeleteProduct() {
 
-        assertTrue(service.removeProduct(101));
+        assertTrue(service.removeProduct(1)); // Existing product ID
     }
 }

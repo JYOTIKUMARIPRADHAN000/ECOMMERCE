@@ -1,130 +1,127 @@
 package com.ecomProject.EcommerceJdbc.services;
-import com.ecomProject.EcommerceJdbc.dao.ProductDao;
-import com.ecomProject.EcommerceJdbc.models.Product;
 
 import java.util.List;
 
-import com.ecommerce.ProductDao;
-import com.ecommerce.Product;
+import com.ecomProject.EcommerceJdbc.dao.ProductDAO;
+import com.ecomProject.EcommerceJdbc.models.Product;
 
 public class ProductService {
 
-	private ProductDao productDAO;
+    private ProductDAO productDAO;
 
-	public ProductService() {
-		productDAO = new ProductDao();
-	}
+    // Constructor
+    public ProductService() {
+        productDAO = new ProductDAO();
+    }
 
-	// Add Product
-	public boolean addProduct(Product product) {
+    // Add Product
+    public boolean addProduct(Product product) {
 
-		if (!validateProduct(product)) {
-			return false;
-		}
+        if (!validateProduct(product)) {
+            return false;
+        }
 
-		if (productDAO.getProductById(product.getProductId()) != null) {
-			System.out.println("Product ID already exists.");
-			return false;
-		}
+        return productDAO.addProduct(product);
+    }
 
-		return productDAO.addProduct(product);
-	}
+    // Edit Product
+    public boolean editProduct(Product product) {
 
-	// Edit Product
-	public boolean editProduct(Product product) {
+        if (!validateProduct(product)) {
+            return false;
+        }
 
-		if (!validateProduct(product)) {
-			return false;
-		}
+        if (productDAO.getProductById(product.getProductId()) == null) {
+            System.out.println("Product not found.");
+            return false;
+        }
 
-		if (productDAO.getProductById(product.getProductId()) == null) {
-			System.out.println("Product not found.");
-			return false;
-		}
+        return productDAO.updateProduct(product);
+    }
 
-		return productDAO.updateProduct(product);
-	}
+    // Remove Product
+    public boolean removeProduct(int productId) {
 
-	// Remove Product
-	public boolean removeProduct(int productId) {
+        if (productDAO.getProductById(productId) == null) {
+            System.out.println("Product not found.");
+            return false;
+        }
 
-		if (productDAO.getProductById(productId) == null) {
-			System.out.println("Product not found.");
-			return false;
-		}
+        return productDAO.deleteProduct(productId);
+    }
 
-		return productDAO.deleteProduct(productId);
-	}
+    // View All Products
+    public List<Product> viewProducts() {
+        return productDAO.getAllProducts();
+    }
 
-	// View Products
-	public List<Product> viewProducts() {
-		return productDAO.getAllProducts();
-	}
+    // Search Product
+    public Product searchProduct(int productId) {
+        return productDAO.getProductById(productId);
+    }
 
-	// Search Product
-	public Product searchProduct(int productId) {
-		return productDAO.getProductById(productId);
-	}
+    // Check Stock
+    public void checkStock(int productId) {
 
-	// Check Stock
-	public void checkStock(int productId) {
+        Product product = productDAO.getProductById(productId);
 
-		Product product = productDAO.getProductById(productId);
+        if (product != null) {
+            System.out.println("Product Name : " + product.getProductName());
+            System.out.println("Available Stock : " + product.getStock());
+        } else {
+            System.out.println("Product not found.");
+        }
+    }
 
-		if (product != null) {
-			
-			System.out.println("Product Name : " + product.getProductName());
-			System.out.println("Available Stock : " + product.getStock());
-			
-		} else {
-			System.out.println("Product not found.");
-		}
-	}
+    // Update Stock
+    public boolean updateStock(int productId, int stock) {
 
-	// Update Stock
-	public boolean updateStock(int productId, int stock) {
+        if (stock < 0) {
+            System.out.println("Stock cannot be negative.");
+            return false;
+        }
 
-		if (stock < 0) {
-			System.out.println("Stock cannot be negative.");
-			return false;
-		}
+        if (productDAO.getProductById(productId) == null) {
+            System.out.println("Product not found.");
+            return false;
+        }
 
-		if (productDAO.getProductById(productId) == null) {
-			System.out.println("Product not found.");
-			return false;
-		}
+        return productDAO.updateStock(productId, stock);
+    }
 
-		return productDAO.updateStock(productId, stock);
-	}
+    // Product Validation
+    private boolean validateProduct(Product product) {
 
-	// Product Validation
-	private boolean validateProduct(Product product) {
+        if (product == null) {
+            System.out.println("Product cannot be null.");
+            return false;
+        }
 
-		if (product.getProductId() <= 0) {
-			System.out.println("Invalid Product ID.");
-			return false;
-		}
+        if (product.getProductName() == null || product.getProductName().trim().isEmpty()) {
+            System.out.println("Product Name cannot be empty.");
+            return false;
+        }
 
-		if (product.getProductName() == null || product.getProductName().trim().isEmpty()) {
-			System.out.println("Product Name cannot be empty.");
-			return false;
-		}
+        if (product.getDescription() == null || product.getDescription().trim().isEmpty()) {
+            System.out.println("Description cannot be empty.");
+            return false;
+        }
 
-		if (product.getCategory() == null || product.getCategory().trim().isEmpty()) {
-			System.out.println("Category cannot be empty.");
-			return false;
-		}
+        if (product.getCategory() == null || product.getCategory().trim().isEmpty()) {
+            System.out.println("Category cannot be empty.");
+            return false;
+        }
 
-		if (product.getPrice() <= 0) {
-			System.out.println("Price must be greater than zero.");
-			return false;
-		}
+        if (product.getPrice() <= 0) {
+            System.out.println("Price must be greater than zero.");
+            return false;
+        }
 
-		if (product.getStock() < 0) {
-			System.out.println("Stock cannot be negative.");
-			return false;
-		}
+        if (product.getStock() < 0) {
+            System.out.println("Stock cannot be negative.");
+            return false;
+        }
 
-		return true;
-	}
+        return true;
+    }
 }
