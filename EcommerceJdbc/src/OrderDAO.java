@@ -1,4 +1,4 @@
-package com.ecomProject.EcommerceJdbc.dao;
+package com.ecommerce.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
