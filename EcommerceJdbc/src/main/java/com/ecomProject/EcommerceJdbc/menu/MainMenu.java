@@ -1,5 +1,23 @@
 package com.ecomProject.EcommerceJdbc.menu;
 
+<<<<<<< HEAD
+package com.ecommerce;
+
+import com.ecommerce.ProductMenu;
+
+public class Main {
+
+	public static void main(String[] args) {
+
+		System.out.println(" ECOMMERCE MANAGEMENT SYSTEM");
+
+		ProductMenu productMenu = new ProductMenu();
+		productMenu.displayMenu();
+
+		System.out.println("Application Closed.");
+	}
+}
+=======
 import com.ecomProject.EcommerceJdbc.exception.CustomerNotFoundException;
 import com.ecomProject.EcommerceJdbc.utils.InputUtil;
 
@@ -62,3 +80,4 @@ public class MainMenu {
         } while (choice != 5);
     }
 }
+>>>>>>> 42a08e5c6ab133e22629a936039dee8ccad7b287
