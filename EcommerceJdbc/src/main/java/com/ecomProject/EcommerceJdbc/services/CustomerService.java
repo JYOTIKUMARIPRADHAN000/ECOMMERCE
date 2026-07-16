@@ -125,14 +125,98 @@ public class CustomerService {
 		}
 
 		// Customer Type
-		if (customer.getCustomerType() == null || !(customer.getCustomerType().equalsIgnoreCase("USER")
+		if (customer.getCustomerType() == null || !(customer.getCustomerType().equalsIgnoreCase("ADMIN")
+				|| customer.getCustomerType().equalsIgnoreCase("USER")
 				|| customer.getCustomerType().equalsIgnoreCase("RESELLER"))) {
 
-			System.out.println("Customer Type must be USER or RESELLER.");
+			System.out.println("Customer Type must be ADMIN, USER or RESELLER.");
 			return false;
 		}
 
 		return true;
+	}
+
+	// ===============================
+	// Login Customer
+	// ===============================
+	public Customer login(String email, String password) {
+
+		if (email == null || email.trim().isEmpty()) {
+
+			System.out.println("Email cannot be empty.");
+			return null;
+		}
+
+		if (password == null || password.trim().isEmpty()) {
+
+			System.out.println("Password cannot be empty.");
+			return null;
+		}
+
+		return customerDAO.login(email, password);
+	}
+
+	// ===============================
+	// View Customers By Page
+	// ===============================
+	public ArrayList<Customer> viewCustomersByPage(int page, int pageSize) {
+
+		return customerDAO.getCustomersByPage(page, pageSize);
+
+	}
+
+	// ===============================
+	// Customer Count
+	// ===============================
+	public int getCustomerCount() {
+
+		return customerDAO.getCustomerCount();
+
+	}
+
+	// ===============================
+	// Search Customer
+	// ===============================
+	public ArrayList<Customer> searchCustomer(String keyword) {
+
+		return customerDAO.searchCustomer(keyword);
+
+	}
+
+	// ===============================
+	// Get Customer By Email
+	// ===============================
+	public Customer getCustomerByEmail(String email) {
+
+		return customerDAO.getCustomerByEmail(email);
+
+	}
+
+	// ===============================
+	// Check Admin
+	// ===============================
+	public boolean isAdmin(Customer customer) {
+
+		return customer != null && customer.getCustomerType().equalsIgnoreCase("ADMIN");
+
+	}
+
+	// ===============================
+	// Check User
+	// ===============================
+	public boolean isUser(Customer customer) {
+
+		return customer != null && customer.getCustomerType().equalsIgnoreCase("USER");
+
+	}
+
+	// ===============================
+	// Check Reseller
+	// ===============================
+	public boolean isReseller(Customer customer) {
+
+		return customer != null && customer.getCustomerType().equalsIgnoreCase("RESELLER");
+
 	}
 
 }
