@@ -17,6 +17,7 @@ CREATE TABLE customer (
     phone VARCHAR(15) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL,
     address VARCHAR(255) NOT NULL,
+    customer_type VARCHAR(20) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -65,9 +66,9 @@ CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     customer_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total_amount DECIMAL(10,2),
     status VARCHAR(30) DEFAULT 'PLACED',
-
+    total_amount DECIMAL(10,2),
+   
     CONSTRAINT fk_orders_customer
         FOREIGN KEY (customer_id)
         REFERENCES customer(customer_id)
@@ -78,12 +79,12 @@ CREATE TABLE orders (
 -- (For OrderItem Module)
 -- ==========================================
 
-CREATE TABLE order_items (
+CREATE TABLE order_item (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(10,2) NOT NULL,
+    unit_price DECIMAL(10,2) NOT NULL,
 
     CONSTRAINT fk_orderitems_order
         FOREIGN KEY (order_id)
