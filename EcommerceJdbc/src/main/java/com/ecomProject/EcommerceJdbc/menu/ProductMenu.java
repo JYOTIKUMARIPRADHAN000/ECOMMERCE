@@ -113,10 +113,8 @@ public class ProductMenu {
 
 		Product product = new Product();
 
-		System.out.print("Enter Product ID : ");
-		product.setProductId(scanner.nextInt());
-
-		scanner.nextLine();
+		System.out.print("Enter Description : ");
+		String description = scanner.nextLine();
 
 		System.out.print("Enter Product Name : ");
 		product.setProductName(scanner.nextLine());

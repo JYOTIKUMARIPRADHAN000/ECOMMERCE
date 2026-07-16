@@ -7,6 +7,7 @@ public class Product {
 	private String category;
 	private double price;
 	private int stock;
+	private String description;
 
 	// Default Constructor
 	public Product() {
@@ -14,12 +15,20 @@ public class Product {
 	}
 
 	// Parameterized Constructor
-	public Product(int productId, String productName, String category, double price, int stock) {
+	public Product(int productId, String productName, String category, double price, int stock,String description ) {
 		this.productId = productId;
 		this.productName = productName;
 		this.category = category;
 		this.price = price;
 		this.stock = stock;
+	}
+	
+	public String getDescription() {
+	    return description;
+	}
+
+	public void setDescription(String description) {
+	    this.description = description;
 	}
 
 	// Getter for Product ID
