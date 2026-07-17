@@ -277,6 +277,7 @@ public class CustomerMenu {
 		System.out.println("\nCustomer Type");
 		System.out.println("1. USER");
 		System.out.println("2. RESELLER");
+		System.out.println("3. ADMIN");
 
 		int choice = InputUtil.getInt("Enter Choice : ");
 
@@ -290,6 +291,9 @@ public class CustomerMenu {
 
 		case 2:
 			customerType = "RESELLER";
+			break;
+		case 3:
+			customerType = "ADMIN";
 			break;
 
 		default:

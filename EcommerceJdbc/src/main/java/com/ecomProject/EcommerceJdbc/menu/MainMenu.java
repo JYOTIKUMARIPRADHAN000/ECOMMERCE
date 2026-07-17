@@ -6,8 +6,7 @@ import com.ecomProject.EcommerceJdbc.utils.InputUtil;
 public class MainMenu {
 
 	private CustomerMenu customerMenu = new CustomerMenu();
-	//ProductMenu productMenu = new ProductMenu();
-	// productMenu.displayMenu();
+	ProductMenu productMenu = new ProductMenu();
 
 	// These will be added by your team mates
 	// private ProductMenu productMenu = new ProductMenu();
@@ -39,8 +38,7 @@ public class MainMenu {
 				break;
 
 			case 2:
-				System.out.println("Product Module is under development.");
-				// productMenu.showMenu();
+				productMenu.displayMenu();
 				break;
 
 			case 3:
