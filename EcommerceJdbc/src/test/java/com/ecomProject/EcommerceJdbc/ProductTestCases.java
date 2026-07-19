@@ -18,10 +18,15 @@ public class ProductTestCases {
                 0,
                 "Laptop",
                 "Electronics",
+<<<<<<< Updated upstream
                 50000,
                 5,
                 "Good laptop"
         );
+=======
+                55000,
+                5, null);
+>>>>>>> Stashed changes
 
         assertTrue(service.addProduct(product));
     }
@@ -40,10 +45,15 @@ public class ProductTestCases {
                 1,                      // Existing product ID
                 "Laptop Updated",
                 "Electronics",
+<<<<<<< Updated upstream
                 55000,
                 10,
                 "Updated gaming laptop"
         );
+=======
+                65000,
+                8, null);
+>>>>>>> Stashed changes
 
         assertTrue(service.editProduct(product));
     }

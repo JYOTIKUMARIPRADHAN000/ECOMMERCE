@@ -3,9 +3,13 @@ package com.ecomProject.EcommerceJdbc.menu;
 import java.util.List;
 import java.util.Scanner;
 
+<<<<<<< Updated upstream
 import com.ecomProject.EcommerceJdbc.models.Product;
 import com.ecomProject.EcommerceJdbc.services.ProductService;
 import com.ecomProject.EcommerceJdbc.utils.CsvReader;
+=======
+
+>>>>>>> Stashed changes
 
 public class ProductMenu {
 

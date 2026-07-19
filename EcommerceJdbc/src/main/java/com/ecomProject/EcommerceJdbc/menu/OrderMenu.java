@@ -3,8 +3,9 @@ package com.ecomProject.EcommerceJdbc.menu;
 import java.util.List;
 import java.util.Scanner;
 
-import com.ecommerce.Order.Order;
-import com.ecommerce.Service.OrderService;
+import com.ecomProject.EcommerceJdbc.models.Order;
+import com.ecomProject.EcommerceJdbc.services.OrderService;
+
 
 public class OrderMenu {
 

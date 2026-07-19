@@ -7,6 +7,10 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
 public class ProductDAO {
 

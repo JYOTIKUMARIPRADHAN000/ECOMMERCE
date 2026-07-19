@@ -1,5 +1,4 @@
 package com.ecomProject.EcommerceJdbc.menu;
-
 import com.ecomProject.EcommerceJdbc.exception.CustomerNotFoundException;
 import com.ecomProject.EcommerceJdbc.utils.InputUtil;
 

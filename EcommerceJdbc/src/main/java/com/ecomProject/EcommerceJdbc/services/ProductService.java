@@ -1,4 +1,5 @@
 package com.ecomProject.EcommerceJdbc.services;
+<<<<<<< Updated upstream
 
 import java.util.List;
 
@@ -13,6 +14,25 @@ public class ProductService {
     public ProductService() {
         productDAO = new ProductDAO();
     }
+=======
+import com.ecomProject.EcommerceJdbc.dao.ProductDAO;
+
+
+import com.ecomProject.EcommerceJdbc.models.Product;
+
+import java.util.List;
+
+
+
+
+public class ProductService {
+
+	private ProductDAO productDAO;
+
+	public ProductService() {
+		this.productDAO = new ProductDAO();
+	}
+>>>>>>> Stashed changes
 
     // Add Product
     public boolean addProduct(Product product) {

@@ -27,10 +27,19 @@
 		<!-- Source:
 		https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
 		<dependency>
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.14.4</version>
 			<scope>test</scope>
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 		</dependency>
 
 	</dependencies>

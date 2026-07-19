@@ -8,8 +8,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ecommerce.DBConnection.DBConnection;
-import com.ecommerce.Order.Order;
+
+import com.ecomProject.EcommerceJdbc.models.Order;
+import com.ecomProject.EcommerceJdbc.utils.DBConnection;
 
 public class OrderDAO {
 
